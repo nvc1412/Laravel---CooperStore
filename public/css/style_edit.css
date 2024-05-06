@@ -1,0 +1,44 @@
+.navbar-light .navbar-nav .active > .nav-link {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.wishlist-active {
+    color: #333333 !important;
+    background-color: #ffcc01 !important;
+    border-color: #ffcc01 !important;
+    box-shadow: none !important;
+}
+
+.scrollable-table-container {
+    max-height: 160px; /* Thiết lập chiều cao tối đa của bảng */
+    overflow-y: auto; /* Cho phép cuộn theo chiều dọc khi nội dung vượt quá chiều cao */
+}
+
+.scrollable-table {
+    width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng của phần tử cha */
+}
+
+.scrollable-table tbody tr {
+    height: 50px; /* Thiết lập chiều cao của mỗi hàng */
+}
+
+.scrollable-table tbody tr td {
+    border: 1px solid #ddd; /* Đường viền cho các ô */
+    padding: 8px; /* Khoảng cách giữa nội dung và biên */
+    text-align: left; /* Căn lề văn bản sang trái */
+}
+
+/* Tạo đường viền bên dưới cho hàng cuối cùng của bảng */
+.scrollable-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.no-spinners {
+    -moz-appearance: textfield;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
