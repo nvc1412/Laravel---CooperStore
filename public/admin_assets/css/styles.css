@@ -1,0 +1,13 @@
+.bg-login-image-fixstyle {
+    background-image: url("../img/icon_logo_web_cooper.png") !important;
+}
+
+.sidebar-dark .nav-item.active .nav-link,
+.sidebar-dark .nav-item.active .nav-link i {
+    color: #00ffff;
+}
+
+.table td {
+    vertical-align: inherit;
+    text-align: center;
+}
