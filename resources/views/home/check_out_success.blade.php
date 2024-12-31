@@ -10,7 +10,8 @@
 
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
-    <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg" style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+    <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item active"><a href="#">Thanh toán</a></li>
         <li class="breadcrumb-item active" aria-current="page">Đặt hàng thành công</li>
 
@@ -107,22 +108,22 @@
                                     <div>Phương thức thanh toán:</div>
                                     <div>
                                         <?php
-                                        switch ($bill->payment) {
-                                            case "cod":
-                                                echo "Thanh toán khi nhận hàng";
-                                                break;
-                                            case "vnpay":
-                                                echo "Ví điện tử VNPAY";
-                                                break;
-                                            case "momo":
-                                                echo "Ví điện tử MOMO";
-                                                break;
-                                            case "paypal":
-                                                echo "Ví điện tử PAYPAL";
-                                                break;
-                                            default:
-                                                echo "";
-                                        }
+switch ($bill->payment) {
+    case "cod":
+        echo "Thanh toán khi nhận hàng";
+        break;
+    case "vnpay":
+        echo "Ví điện tử VNPAY";
+        break;
+    case "momo":
+        echo "Ví điện tử MOMO";
+        break;
+    case "paypal":
+        echo "Ví điện tử PAYPAL";
+        break;
+    default:
+        echo "";
+}
                                         ?>
                                     </div>
                                 </div>
@@ -133,7 +134,8 @@
                             </div>
 
                             <p>
-                                Nếu có bất cứ vấn đề cần hỗ trợ, hãy liên hệ cho chúng tôi qua hotline <a href="tel:0365042941">0365042941</a>.
+                                Nếu có bất cứ vấn đề cần hỗ trợ, hãy liên hệ cho chúng tôi qua hotline <a
+                                    href="tel:0365042941">0365042941</a>.
                             </p>
                             <strong>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi! Đơn hàng sẽ được chuẩn bị và vận chuyển
                                 trong vòng từ 3-5 ngày.</strong>

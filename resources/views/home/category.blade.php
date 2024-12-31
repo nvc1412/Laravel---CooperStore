@@ -79,7 +79,7 @@ input[type="range"]::-moz-range-thumb:focus {
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
     <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item"><a href="#">Danh mục</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{$category->name}}</li>
     </ol>
@@ -90,7 +90,7 @@ input[type="range"]::-moz-range-thumb:focus {
             <div class="content-wrapper col-xl-9 col-lg-9 order-lg-2">
                 <div class="block-category mb-30 w-100 float-left">
                     <div class="category-cover">
-                        <img src="img/banner/category-banner.png" alt="category-banner" />
+                        <img src="img/banner/category-banner.jpg" alt="category-banner" />
                     </div>
                 </div>
                 <header class="product-grid-header d-flex d-xs-block d-sm-flex d-lg-flex w-100 float-left">
@@ -117,10 +117,10 @@ input[type="range"]::-moz-range-thumb:focus {
                                     <input type="hidden" name="sort" value="{{ $sort }}">
                                     @endif
 
-                                    @if((int)$fromPrice != (int)$minPrice)
+                                    @if((int) $fromPrice != (int) $minPrice)
                                     <input type="hidden" name="fromPrice" value="{{ $fromPrice }}">
                                     @endif
-                                    @if((int)$toPrice != (int)$maxPrice)
+                                    @if((int) $toPrice != (int) $maxPrice)
                                     <input type="hidden" name="toPrice" value="{{ $toPrice }}">
                                     @endif
                                     <select name="show" id="show">
@@ -178,8 +178,9 @@ input[type="range"]::-moz-range-thumb:focus {
                                         </div>
                                         <div class="rating">
                                             <div class="product-ratings d-inline-block align-middle">
-                                                @for($x = 1; $x <= 5 ; $x++) @if($x <=average_rate($pro->
-                                                    ratings))
+                                                @for($x = 1; $x <= 5; $x++) @if( $x <=average_rate($pro->
+                                                    ratings)
+                                                    )
                                                     <span class="fa fa-stack"><i class="material-icons">star</i></span>
                                                     @else
                                                     <span class="fa fa-stack"><i
@@ -247,8 +248,9 @@ input[type="range"]::-moz-range-thumb:focus {
                                     </div>
                                     <div class="rating mb-10">
                                         <div class="product-ratings d-inline-block align-middle">
-                                            @for($x = 1; $x <= 5 ; $x++) @if($x <=average_rate($pro->
-                                                ratings))
+                                            @for($x = 1; $x <= 5; $x++) @if( $x <=average_rate($pro->
+                                                ratings)
+                                                )
                                                 <span class="fa fa-stack"><i class="material-icons">star</i></span>
                                                 @else
                                                 <span class="fa fa-stack"><i class="material-icons off">star</i></span>
@@ -297,14 +299,15 @@ input[type="range"]::-moz-range-thumb:focus {
                 </div>
                 <div class="pagination-wrapper float-left w-100">
                     <p>Hiển thị {{ $products->firstItem() }} đến {{ $products->lastItem() }} của
-                        {{ $products->total() }} sản phẩm</p>
+                        {{ $products->total() }} sản phẩm
+                    </p>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
 
                             @if ($products->previousPageUrl())
                             <li class="page-item">
                                 <a class="page-link"
-                                    href="{{ $products->previousPageUrl() }}{{($perPage != "9") ? '&show='.$perPage : ''}}{{($sort != "default") ? '&sort='.$sort : ''}}{{($fromPrice != $minPrice) ? '&fromPrice='.$fromPrice : ''}}{{($toPrice != $maxPrice) ? '&toPrice='.$toPrice : ''}}"
+                                    href="{{ $products->previousPageUrl() }}{{($perPage != "9") ? '&show=' . $perPage : ''}}{{($sort != "default") ? '&sort=' . $sort : ''}}{{($fromPrice != $minPrice) ? '&fromPrice=' . $fromPrice : ''}}{{($toPrice != $maxPrice) ? '&toPrice=' . $toPrice : ''}}"
                                     aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
@@ -315,14 +318,14 @@ input[type="range"]::-moz-range-thumb:focus {
                             @foreach(range(1, $products->lastPage()) as $page)
                             <li class="page-item {{ $page == $products->currentPage() ? 'active' : '' }}">
                                 <a class="page-link"
-                                    href="{{ $products->url($page) }}{{($perPage != "9") ? '&show='.$perPage : ''}}{{($sort != "default") ? '&sort='.$sort : ''}}{{($fromPrice != $minPrice) ? '&fromPrice='.$fromPrice : ''}}{{($toPrice != $maxPrice) ? '&toPrice='.$toPrice : ''}}">{{ $page }}</a>
+                                    href="{{ $products->url($page) }}{{($perPage != "9") ? '&show=' . $perPage : ''}}{{($sort != "default") ? '&sort=' . $sort : ''}}{{($fromPrice != $minPrice) ? '&fromPrice=' . $fromPrice : ''}}{{($toPrice != $maxPrice) ? '&toPrice=' . $toPrice : ''}}">{{ $page }}</a>
                             </li>
                             @endforeach
 
                             @if ($products->nextPageUrl())
                             <li class="page-item">
                                 <a class="page-link"
-                                    href="{{ $products->nextPageUrl() }}{{($perPage != "9") ? '&show='.$perPage : ''}}{{($sort != "default") ? '&sort='.$sort : ''}}{{($fromPrice != $minPrice) ? '&fromPrice='.$fromPrice : ''}}{{($toPrice != $maxPrice) ? '&toPrice='.$toPrice : ''}}"
+                                    href="{{ $products->nextPageUrl() }}{{($perPage != "9") ? '&show=' . $perPage : ''}}{{($sort != "default") ? '&sort=' . $sort : ''}}{{($fromPrice != $minPrice) ? '&fromPrice=' . $fromPrice : ''}}{{($toPrice != $maxPrice) ? '&toPrice=' . $toPrice : ''}}"
                                     aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
@@ -443,8 +446,9 @@ input[type="range"]::-moz-range-thumb:focus {
                                                 </div>
                                                 <div class="rating">
                                                     <div class="product-ratings d-inline-block align-middle">
-                                                        @for($x = 1; $x <= 5 ; $x++) @if($x <=average_rate($pro->
-                                                            ratings))
+                                                        @for($x = 1; $x <= 5; $x++) @if( $x <=average_rate($pro->
+                                                            ratings)
+                                                            )
                                                             <span class="fa fa-stack"><i
                                                                     class="material-icons">star</i></span>
                                                             @else

@@ -117,7 +117,7 @@
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
     <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item active" aria-current="page">Lịch sử mua hàng</li>
     </ol>
 </nav>
@@ -151,18 +151,18 @@
                     </thead>
                     <tbody>
                         <!-- <tr>
-                            <td class="text-center">
-                                <div class="btn btn-sm btn-status-unconfirmed mt-2">Chờ xác nhận</div>
-                                <div class="btn btn-sm btn-status-preparing mt-2">Đang được chuẩn bị</div>
-                                <div class="btn btn-sm btn-status-shipping mt-2">Đang vận chuyển</div>
-                                <div class="btn btn-sm btn-status-delivered mt-2">Đã giao hàng</div>
-                                <div class="btn btn-sm btn-status-completed mt-2">Hoàn tất</div>
-                                <div class="btn btn-sm btn-status-refunding mt-2">Đang hoàn hàng</div>
-                                <div class="btn btn-sm btn-status-refunded mt-2">Hoàn hàng thành công</div>
-                                <div class="btn btn-sm btn-status-failed mt-2">Thất lạc - hư hỏng</div>
-                                <div class="btn btn-sm btn-status-cancelled mt-2">Đã hủy</div>
-                            </td>
-                        </tr> -->
+                                <td class="text-center">
+                                    <div class="btn btn-sm btn-status-unconfirmed mt-2">Chờ xác nhận</div>
+                                    <div class="btn btn-sm btn-status-preparing mt-2">Đang được chuẩn bị</div>
+                                    <div class="btn btn-sm btn-status-shipping mt-2">Đang vận chuyển</div>
+                                    <div class="btn btn-sm btn-status-delivered mt-2">Đã giao hàng</div>
+                                    <div class="btn btn-sm btn-status-completed mt-2">Hoàn tất</div>
+                                    <div class="btn btn-sm btn-status-refunding mt-2">Đang hoàn hàng</div>
+                                    <div class="btn btn-sm btn-status-refunded mt-2">Hoàn hàng thành công</div>
+                                    <div class="btn btn-sm btn-status-failed mt-2">Thất lạc - hư hỏng</div>
+                                    <div class="btn btn-sm btn-status-cancelled mt-2">Đã hủy</div>
+                                </td>
+                            </tr> -->
                         @foreach($bills as $bill)
                         <tr>
                             <td class="text-center">#{{$bill->id}}</td>
@@ -175,50 +175,51 @@
 
                             </td>
                             <td class="text-center">
-                                <div class='w-100 btn btn-sm 
-                                @php
-                                switch($bill->status){
-                                case "Chờ xác nhận": 
-                                echo "btn-status-unconfirmed";
-                                break;
+                                <div class='w-100 btn btn-sm
+                                                            @php
+                                                                switch ($bill->status) {
+                                                                    case "Chờ xác nhận":
+                                                                        echo "btn-status-unconfirmed";
+                                                                        break;
 
-                                case "Đang được chuẩn bị": 
-                                echo "btn-status-preparing";
-                                break;
+                                                                    case "Đang được chuẩn bị":
+                                                                        echo "btn-status-preparing";
+                                                                        break;
 
-                                case "Đang vận chuyển": 
-                                echo "btn-status-shipping";
-                                break;
+                                                                    case "Đang vận chuyển":
+                                                                        echo "btn-status-shipping";
+                                                                        break;
 
-                                case "Đã giao hàng": 
-                                echo "btn-status-delivered";
-                                break;
+                                                                    case "Đã giao hàng":
+                                                                        echo "btn-status-delivered";
+                                                                        break;
 
-                                case "Hoàn tất": 
-                                echo "btn-status-completed";
-                                break;
+                                                                    case "Hoàn tất":
+                                                                        echo "btn-status-completed";
+                                                                        break;
 
-                                case "Đang hoàn hàng": 
-                                echo "btn-status-refunding";
-                                break;
+                                                                    case "Đang hoàn hàng":
+                                                                        echo "btn-status-refunding";
+                                                                        break;
 
-                                case "Hoàn hàng thành công": 
-                                echo "btn-status-refunded";
-                                break;
+                                                                    case "Hoàn hàng thành công":
+                                                                        echo "btn-status-refunded";
+                                                                        break;
 
-                                case "Thất lạc - hư hỏng": 
-                                echo "btn-status-failed";
-                                break;
+                                                                    case "Thất lạc - hư hỏng":
+                                                                        echo "btn-status-failed";
+                                                                        break;
 
-                                case "Đã hủy": 
-                                echo "btn-status-cancelled";
-                                break;
+                                                                    case "Đã hủy":
+                                                                        echo "btn-status-cancelled";
+                                                                        break;
 
-                                default:
-                                echo "btn-info";
-                                };
-                                @endphp
-                                '>{{$bill->status}}</div>
+                                                                    default:
+                                                                        echo "btn-info";
+                                                                }
+                                                                ;
+                                                            @endphp
+                                                            '>{{$bill->status}}</div>
                             </td>
                             <td class="text-center text-uppercase">{{$bill->payment}}</td>
                             <td class="text-center">{{number_format($bill->total)}}đ</td>

@@ -10,7 +10,7 @@
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
     <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item"><a href="{{route("home.index")}}">Trang chủ</a></li>
         <li class="breadcrumb-item active" aria-current="page">Đặt lại mật khẩu</li>
     </ol>
@@ -98,8 +98,9 @@
                                                 </div>
                                                 <div class="rating">
                                                     <div class="product-ratings d-inline-block align-middle">
-                                                        @for($x = 1; $x <= 5 ; $x++) @if($x <=average_rate($pro->
-                                                            ratings))
+                                                        @for($x = 1; $x <= 5; $x++) @if( $x <=average_rate($pro->
+                                                            ratings)
+                                                            )
                                                             <span class="fa fa-stack"><i
                                                                     class="material-icons">star</i></span>
                                                             @else

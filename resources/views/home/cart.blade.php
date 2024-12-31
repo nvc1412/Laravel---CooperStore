@@ -11,7 +11,7 @@
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
     <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item"><a href="{{route("home.index")}}">Trang chủ</a></li>
         <li class="breadcrumb-item active" aria-current="page">Giỏ Hàng</li>
 
@@ -132,7 +132,8 @@
                         <span
                             class="c-total-price font-weight-bold text-success">{{ number_format($totalPrice) }}đ</span>
                     </div>
-                    <a href="{{route('checkout.index')}}" class="btn btn-primary float-left w-100 text-center">Tiến hành
+                    <a href="{{route('checkout.index')}}" class="btn btn-primary float-left w-100 text-center">Tiến
+                        hành
                         thanh toán</a>
                 </div>
             </div>

@@ -79,7 +79,7 @@ input[type="range"]::-moz-range-thumb:focus {
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
     <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item active" aria-current="page">Cửa hàng</li>
     </ol>
 </nav>
@@ -89,7 +89,7 @@ input[type="range"]::-moz-range-thumb:focus {
             <div class="content-wrapper col-xl-9 col-lg-9 order-lg-2">
                 <div class="block-category mb-30 w-100 float-left">
                     <div class="category-cover">
-                        <img src="img/banner/category-banner.png" alt="category-banner" />
+                        <img src="img/banner/category-banner.jpg" alt="category-banner" />
                     </div>
                 </div>
                 <header class="product-grid-header d-flex d-xs-block d-sm-flex d-lg-flex w-100 float-left">

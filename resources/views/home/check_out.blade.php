@@ -11,7 +11,7 @@
 
 <nav aria-label="breadcrumb" class="w-100 float-left">
     <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+        style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%; background-repeat: no-repeat; background-size: cover;">
         <li class="breadcrumb-item active" aria-current="page">Thanh toán</li>
 
     </ol>
@@ -113,10 +113,10 @@
                         </div>
 
                         <!-- <div class="custom-control custom-radio" id="checkbox-card-paypal">
-                            <input id="paypal" name="payment" type="radio" value="paypal" class="custom-control-input"
-                                required="">
-                            <label class="custom-control-label" for="paypal">Ví điện tử Paypal</label>
-                        </div> -->
+                                    <input id="paypal" name="payment" type="radio" value="paypal" class="custom-control-input"
+                                        required="">
+                                    <label class="custom-control-label" for="paypal">Ví điện tử Paypal</label>
+                                </div> -->
                         @error("payment")
                         <small class="text-danger">* {{$message}}</small>
                         @enderror

@@ -290,7 +290,8 @@
                     </div>
                 </div>
             </div>
-            <div id="ttcmstestimonial" class="my-40 my-sm-25 bottom-to-top hb-animate-element">
+            <div id="ttcmstestimonial" class="my-40 my-sm-25 bottom-to-top hb-animate-element"
+                style="background-repeat: no-repeat;background-size: cover;">
                 <div class="tttestimonial-content container">
                     <div class="tttestimonial-inner">
                         <div class="tttestimonial owl-carousel">

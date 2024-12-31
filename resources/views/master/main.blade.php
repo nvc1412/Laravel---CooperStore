@@ -173,9 +173,11 @@
                                 </li>
                                 <li class="buttons w-100 float-left d-flex">
                                     <a href="{{route('cart.index')}}"
-                                        class="btn pull-left mt_10 btn-primary btn-rounded w-100 mr-1">Giỏ hàng</a>
+                                        class="btn pull-left mt_10 btn-primary btn-rounded w-100 mr-1">Giỏ
+                                        hàng</a>
                                     <a href="{{route('checkout.index')}}"
-                                        class="btn pull-right mt_10 btn-primary btn-rounded w-100 ml-1">Thanh toán</a>
+                                        class="btn pull-right mt_10 btn-primary btn-rounded w-100 ml-1">Thanh
+                                        toán</a>
                                 </li>
                                 @endif
                                 </ul>
@@ -268,7 +270,7 @@
 
                                 <!-- Features -->
                                 <li class="nav-item active">
-                                    <a class="nav-link text-uppercase" href="#">
+                                    <a class="nav-link text-uppercase" href="{{route("home.index")}}">
                                         Trang chủ </a>
 
                                 </li>
@@ -282,14 +284,13 @@
                                         id="menu2">
                                         <div class="sub-menu mb-xl-0 mb-4">
                                             <ul class="list-unstyled">
+                                                @foreach($cats as $cat)
                                                 <li>
-                                                    <a class="menu-item pl-0" href="product-grid.html">
-                                                        Áo polo </a>
+                                                    <a class="menu-item pl-0"
+                                                        href="{{route("home.category", $cat->id)}}">
+                                                        {{$cat->name}}</a>
                                                 </li>
-                                                <li>
-                                                    <a class="menu-item pl-0" href="product-sticky-right.html">
-                                                        Quần kaki </a>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -297,12 +298,13 @@
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-uppercase" href="#">
+                                    <a class="nav-link text-uppercase" href="{{route("home.shop")}}">
                                         Cửa hàng </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-uppercase" href="{{route('checkout.index')}}">Thanh toán</a>
+                                    <a class="nav-link text-uppercase" href="{{route('checkout.index')}}">Thanh
+                                        toán</a>
                                 </li>
                                 <!-- Technology -->
 
@@ -346,7 +348,7 @@
     <!-- Footer -->
     <div class="block-newsletter">
         <div class="parallax" data-source-url="img/banner/parallax.jpg"
-            style="background-image:url(img/banner/parallax.jpg); background-position:50% 65.8718%;">
+            style="background-image:url(img/banner/parallax.jpg); background-position:50% 65.8718%;background-repeat: no-repeat;background-size: cover;">
             <div class="container">
                 <div class="tt-newsletter col-sm-7">
                     <h2 class="text-uppercase">Đăng kÝ nhận tin</h2>
