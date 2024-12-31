@@ -113,10 +113,10 @@
                         </div>
 
                         <!-- <div class="custom-control custom-radio" id="checkbox-card-paypal">
-                                    <input id="paypal" name="payment" type="radio" value="paypal" class="custom-control-input"
-                                        required="">
-                                    <label class="custom-control-label" for="paypal">Ví điện tử Paypal</label>
-                                </div> -->
+                                                    <input id="paypal" name="payment" type="radio" value="paypal" class="custom-control-input"
+                                                        required="">
+                                                    <label class="custom-control-label" for="paypal">Ví điện tử Paypal</label>
+                                                </div> -->
                         @error("payment")
                         <small class="text-danger">* {{$message}}</small>
                         @enderror
@@ -286,7 +286,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
     // Tải danh sách tỉnh/thành phố khi trang được tải
-    $.get("https://vapi.vnappmob.com/api/province/", function(data) {
+    $.get("https://vapi.vnappmob.com/api/v2/province/", function(data) {
         var options = "<option value=''>Chọn tỉnh/thành phố</option>";
         data.results.forEach(function(province) {
             options += "<option value='" + province.province_id + "' data-province='" + province
@@ -299,7 +299,7 @@ $(document).ready(function() {
     $("#province").change(function() {
         var provinceId = $(this).val();
         if (provinceId !== '') {
-            $.get("https://vapi.vnappmob.com/api/province/district/" + provinceId, function(data) {
+            $.get("https://vapi.vnappmob.com/api/v2/province/district/" + provinceId, function(data) {
                 var options = "<option value=''>Chọn quận/huyện</option>";
                 data.results.forEach(function(district) {
                     options += "<option value='" + district.district_id +
@@ -317,7 +317,7 @@ $(document).ready(function() {
     $("#district").change(function() {
         var districtId = $(this).val();
         if (districtId !== '') {
-            $.get("https://vapi.vnappmob.com/api/province/ward/" + districtId, function(data) {
+            $.get("https://vapi.vnappmob.com/api/v2/province/ward/" + districtId, function(data) {
                 var options = "<option value=''>Chọn xã/phường</option>";
                 data.results.forEach(function(ward) {
                     options += "<option value='" + ward.ward_id + "' data-ward='" + ward
