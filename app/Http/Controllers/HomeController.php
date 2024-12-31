@@ -45,8 +45,17 @@ class HomeController extends Controller
         return view('home.shop', compact('products', 'perPage', 'sort', 'fromPrice', 'toPrice', 'minPrice', 'maxPrice'));
     }
 
+    public function showPolicy()
+    {
+        return view('home.policy');
+    }
+
     public function showCategory(ShopRequest $request, Category $category)
     {
+        if (!$category->products()->count()) {
+            session()->flash("error", "Danh mục chưa có sản phẩm!");
+            return redirect()->back();
+        }
         [$minPrice, $maxPrice] = $this->homeService->getMinMaxPrice($category);
 
         $fromPrice = $request->input('fromPrice', $minPrice);

@@ -91,7 +91,7 @@ class ProductController extends Controller
 
     public function updateDetail(Request $request)
     {
-        if ($this->productService->updateProductDetail($request->productId)) {
+        if ($this->productService->updateProductDetail($request)) {
             session()->flash("success", "Cập nhật chi tiết sản phẩm thành công!");
             return redirect()->back();
         }

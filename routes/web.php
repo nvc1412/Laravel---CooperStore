@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(["prefix" => ""], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/shop', [HomeController::class, 'showShop'])->name('home.shop');
+    Route::get('/policy', [HomeController::class, 'showPolicy'])->name('home.policy');
     Route::get('/category/{category}', [HomeController::class, 'showCategory'])->name('home.category');
     Route::get('product-detail/{product}', [HomeController::class, 'showProductDetail'])->name('home.showProductDetail');
     Route::get('/favorite/{product}', [HomeController::class, 'favorite'])->name('home.favorite')->middleware("customer");

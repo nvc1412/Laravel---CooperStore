@@ -236,11 +236,9 @@
                                     <a class="nav-link text-uppercase" href="{{route('checkout.index')}}">Thanh
                                         toán</a>
                                 </li>
-                                <li class="nav-item @yield('contact-active')">
-                                    <a class="nav-link text-uppercase" href="#">LIÊN HỆ</a>
-                                </li>
                                 <li class="nav-item @yield('policy-active')">
-                                    <a class="nav-link text-uppercase" href="#">CHÍNH SÁCH</a>
+                                    <a class="nav-link text-uppercase" href="{{route("home.policy")}}">CHÍNH
+                                        SÁCH</a>
                                 </li>
 
                             </ul>
@@ -311,17 +309,13 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
                                         data-target="#menu5" aria-controls="menu5" aria-expanded="false"
-                                        aria-label="Toggle navigation" href="#">Hỗ trợ</a>
+                                        aria-label="Toggle navigation" href="{{route("home.policy")}}">Hỗ trợ</a>
                                     <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
                                         id="menu5">
                                         <div class="sub-menu">
                                             <ul class="list-unstyled">
                                                 <li>
-                                                    <a class="menu-item pl-0" href="#">
-                                                        Liên hệ </a>
-                                                </li>
-                                                <li>
-                                                    <a class="menu-item pl-0" href="#">
+                                                    <a class="menu-item pl-0" href="{{route("home.policy")}}">
                                                         Chính sách </a>
                                                 </li>
                                             </ul>
@@ -383,12 +377,12 @@
                             aria-expanded="false">Sản Phẩm</a>
                     </div>
                     <ul id="company" class="list-unstyled collapse">
+                        @foreach($cats as $cat)
                         <li>
-                            <a href="#">Áo polo</a>
+                            <a href="{{route("home.category", $cat->id)}}">
+                                {{$cat->name}}</a>
                         </li>
-                        <li>
-                            <a href="#">Quần kaki</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-md-2 footer-column">
@@ -398,13 +392,13 @@
                     </div>
                     <ul id="products" class="list-unstyled collapse">
                         <li>
-                            <a href="#">Chính sách đổi trả</a>
+                            <a href="{{route("home.policy")}}">Chính sách bảo mật</a>
                         </li>
                         <li>
-                            <a href="#">Chính sách bảo mật</a>
+                            <a href="{{route("home.policy")}}">Chính sách vận chuyển</a>
                         </li>
                         <li>
-                            <a href="#">Chính sách vận chuyển</a>
+                            <a href="{{route("home.policy")}}">Hình thức thanh toán</a>
                         </li>
                     </ul>
 
@@ -418,17 +412,22 @@
                         <li class="links">
                             <span class="contact">
                                 <span class="icon"><i class="material-icons">shop</i></span>
-                                <span class="data"><a href="#">Shopee</a></span> </span>
+                                <span class="data"><a href="https://shopee.vn/cooperstore.vn"
+                                        target="_blank">Shopee</a></span> </span>
                         </li>
                         <li class="links">
                             <span class="contact">
                                 <span class="icon"><i class="material-icons">tiktok</i></span>
-                                <span class="data"><a href="#">Tiktok</a></span> </span>
+                                <span class="data"><a href="https://www.tiktok.com/@cooperstore.vn"
+                                        target="_blank">Tiktok</a></span>
+                            </span>
                         </li>
                         <li class="links">
                             <span class="contact">
                                 <span class="icon"><i class="material-icons">facebook</i></span>
-                                <span class="data"><a href="#">FaceBook</a></span>
+                                <span class="data"><a
+                                        href="https://www.facebook.com/people/Cooperstore/61557861086959/?locale=vi_VN"
+                                        target="_blank">FaceBook</a></span>
                             </span>
                         </li>
                     </ul>

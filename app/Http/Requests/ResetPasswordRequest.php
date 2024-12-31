@@ -14,7 +14,7 @@ class ResetPasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "password" => "required|min:1",
+            "password" => "required|min:5",
             "cf_password" => "required|same:password",
         ];
     }
@@ -23,7 +23,7 @@ class ResetPasswordRequest extends FormRequest
     {
         return [
             'password.required' => 'Mật khẩu không được bỏ trống!',
-            "password.min" => "Mật khẩu tối thiểu 1 ký tự!",
+            "password.min" => "Mật khẩu tối thiểu 5 ký tự!",
             'cf_password.required' => 'Mật khẩu xác nhận không được bỏ trống!',
             'cf_password.same' => 'Mật khẩu xác nhận không trùng khớp!',
         ];

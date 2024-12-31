@@ -22,6 +22,8 @@
     <!-- Custom styles for this template-->
     <link href="admin_assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="admin_assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" />
     @yield("css")
 
 </head>
@@ -268,6 +270,33 @@
     <script src="admin_assets/js/scripts.js"></script>
     @yield("js")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+
+    @if(Session::has('success'))
+    <script>
+    $.toast({
+        heading: 'Thành công',
+        text: '{{Session::get("success")}}',
+        showHideTransition: 'slide',
+        icon: 'success',
+        position: "top-center",
+        hideAfter: 6000
+    })
+    </script>
+    @endif
+
+    @if(Session::has('error'))
+    <script>
+    $.toast({
+        heading: 'ERROR',
+        text: '{{Session::get("error")}}',
+        showHideTransition: 'slide',
+        icon: 'error',
+        position: "top-center",
+        hideAfter: 6000
+    })
+    </script>
+    @endif
 </body>
 
 </html>

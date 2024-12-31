@@ -19,6 +19,8 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" />
     <!-- Custom styles for this template-->
     <link href="{{asset('admin_assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin_assets/css/styles.css')}}" rel="stylesheet">
@@ -34,11 +36,11 @@
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 
-                @if(Session::has('error'))
+                <!-- @if(Session::has('error'))
                 <div class="alert alert-danger mt-4" id="login-err-msg">
                     {{Session::get("error")}}
                 </div>
-                @endif
+                @endif -->
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
@@ -99,6 +101,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('admin_assets/js/sb-admin-2.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
 
     <script>
     $(document).ready(function() {
@@ -118,6 +121,32 @@
     });
     </script>
 
+
+    <!-- @if(Session::has('success'))
+    <script>
+    $.toast({
+        heading: 'Thành công',
+        text: '{{Session::get("success")}}',
+        showHideTransition: 'slide',
+        icon: 'success',
+        position: "top-center",
+        hideAfter: 6000
+    })
+    </script>
+    @endif -->
+
+    @if(Session::has('error'))
+    <script>
+    $.toast({
+        heading: 'ERROR',
+        text: '{{Session::get("error")}}',
+        showHideTransition: 'slide',
+        icon: 'error',
+        position: "top-center",
+        hideAfter: 6000
+    })
+    </script>
+    @endif
 </body>
 
 </html>

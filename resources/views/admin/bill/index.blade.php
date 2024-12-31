@@ -92,7 +92,7 @@
 <div class="row">
     <div class="col-md-12">
 
-        @if(Session::has('error'))
+        <!-- @if(Session::has('error'))
         <div class="alert alert-danger alert-dismissible">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             * {{Session::get("error")}}
@@ -104,7 +104,7 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             {{Session::get("success")}}
         </div>
-        @endif
+        @endif -->
 
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
@@ -145,50 +145,51 @@
                                     <td class="text-uppercase">{{ $bill->payment }}</td>
                                     <td>{{ number_format($bill->total) }}đ</td>
                                     <td class="text-center">
-                                        <div class='w-100 btn btn-sm 
-                                @php
-                                switch($bill->status){
-                                case "Chờ xác nhận": 
-                                echo "btn-status-unconfirmed";
-                                break;
+                                        <div class='w-100 btn btn-sm
+                                                                        @php
+                                                                            switch ($bill->status) {
+                                                                                case "Chờ xác nhận":
+                                                                                    echo "btn-status-unconfirmed";
+                                                                                    break;
 
-                                case "Đang được chuẩn bị": 
-                                echo "btn-status-preparing";
-                                break;
+                                                                                case "Đang được chuẩn bị":
+                                                                                    echo "btn-status-preparing";
+                                                                                    break;
 
-                                case "Đang vận chuyển": 
-                                echo "btn-status-shipping";
-                                break;
+                                                                                case "Đang vận chuyển":
+                                                                                    echo "btn-status-shipping";
+                                                                                    break;
 
-                                case "Đã giao hàng": 
-                                echo "btn-status-delivered";
-                                break;
+                                                                                case "Đã giao hàng":
+                                                                                    echo "btn-status-delivered";
+                                                                                    break;
 
-                                case "Hoàn tất": 
-                                echo "btn-status-completed";
-                                break;
+                                                                                case "Hoàn tất":
+                                                                                    echo "btn-status-completed";
+                                                                                    break;
 
-                                case "Đang hoàn hàng": 
-                                echo "btn-status-refunding";
-                                break;
+                                                                                case "Đang hoàn hàng":
+                                                                                    echo "btn-status-refunding";
+                                                                                    break;
 
-                                case "Hoàn hàng thành công": 
-                                echo "btn-status-refunded";
-                                break;
+                                                                                case "Hoàn hàng thành công":
+                                                                                    echo "btn-status-refunded";
+                                                                                    break;
 
-                                case "Thất lạc - hư hỏng": 
-                                echo "btn-status-failed";
-                                break;
+                                                                                case "Thất lạc - hư hỏng":
+                                                                                    echo "btn-status-failed";
+                                                                                    break;
 
-                                case "Đã hủy": 
-                                echo "btn-status-cancelled";
-                                break;
+                                                                                case "Đã hủy":
+                                                                                    echo "btn-status-cancelled";
+                                                                                    break;
 
-                                default:
-                                echo "btn-info";
-                                };
-                                @endphp
-                                '>{{$bill->status}}</div>
+                                                                                default:
+                                                                                    echo "btn-info";
+                                                                            }
+                                                                            ;
+                                                                        @endphp
+                                                                        '>{{$bill->status}}</div>
                                     </td>
                                     <td>{{ $bill->created_at->format("d/m/Y H:i") }}</td>
                                     <td><a href="{{route('bill.showDetailBill', $bill->id)}}"

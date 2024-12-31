@@ -24,12 +24,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        view()->composer(["master.main", "home.category", "home.shop"], function ($view) {
+        view()->composer(["master.main", "home.category", "home.shop", "home.policy"], function ($view) {
             $cats = Category::orderBy("name", "asc")->select("id", "name")->get();
             $view->with(compact("cats"));
         });
 
-        view()->composer(["home.category", "home.profile", "home.reset_password", "home.shop"], function ($view) {
+        view()->composer(["home.category", "home.profile", "home.reset_password", "home.shop", "home.policy"], function ($view) {
             $discount_products = Product::inRandomOrder()->where("products.discount", ">", 0)->limit(3)->get();
             $view->with(compact("discount_products"));
         });

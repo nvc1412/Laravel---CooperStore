@@ -41,7 +41,7 @@
 <div class="row">
     <div class="col-md-12">
 
-        @if(Session::has('error'))
+        <!-- @if(Session::has('error'))
         <div class="alert alert-danger alert-dismissible">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             * {{Session::get("error")}}
@@ -53,7 +53,7 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             {{Session::get("success")}}
         </div>
-        @endif
+        @endif -->
 
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">

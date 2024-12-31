@@ -103,7 +103,8 @@
 
                     </form>
                     <div class="float-left">
-                        <h8>Kho hàng: <span id="current-size-quantity">{{$product->sizes->first()->quantity}}</span> sản
+                        <h8>Kho hàng: <span
+                                id="current-size-quantity">{{$product->sizes->first()->quantity ?? 0}}</span> sản
                             phẩm có sẵn</h8>
                     </div>
 

@@ -16,6 +16,11 @@ class Product extends Model
     //     return $this->hasOne(Category::class, "id", "category_id");
     // }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, "product_id", "id");
+    }
+
     public function images()
     {
         return $this->hasMany(ProductImage::class, "product_id", "id");
@@ -31,7 +36,8 @@ class Product extends Model
         return $favorited ? true : false;
     }
 
-    public function ratings(){
+    public function ratings()
+    {
         return $this->hasMany(Rating::class, "product_id", "id")->orderBy("created_at", "desc");
     }
 }

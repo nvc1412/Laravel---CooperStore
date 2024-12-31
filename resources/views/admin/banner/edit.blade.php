@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-12">
 
-        @error('name')
+        <!-- @error('name')
         <div class="alert alert-danger alert-dismissible">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             * {{ $message }}
@@ -20,7 +20,7 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             {{Session::get("success")}}
         </div>
-        @endif
+        @endif -->
 
         <div class="card shadow mb-4">
             <form action="{{ route('banner.update', $banner->id) }}" method="post" enctype="multipart/form-data">
@@ -98,6 +98,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 @stop

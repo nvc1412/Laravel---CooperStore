@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductDetail;
@@ -108,6 +109,10 @@ class ProductService
         // Nếu trong CSDL có ảnh chi tiết của sản phẩm
         if ($product->images()->count() > 0) {
             ProductImage::where("product_id", $product->id)->delete();
+        }
+
+        if ($product->carts()->count() > 0) {
+            Cart::where("product_id", $product->id)->delete();
         }
 
         // Nếu trong CSDL có size chi tiết của sản phẩm
