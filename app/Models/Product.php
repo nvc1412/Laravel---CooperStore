@@ -40,4 +40,9 @@ class Product extends Model
     {
         return $this->hasMany(Rating::class, "product_id", "id")->orderBy("created_at", "desc");
     }
+
+    public function billDetails()
+    {
+        return $this->hasMany(BillDetail::class, 'product_id', 'id');
+    }
 }

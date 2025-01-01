@@ -18,6 +18,8 @@ class ProductRequest extends FormRequest
         return [
             "name" => "required|min:3|max:99|unique:products,name," . $productId,
             "price" => "required|numeric",
+            "description" => "nullable",
+            "short_description" => "nullable",
             "discount" => "numeric|lte:price",
             "image" => ($this->isMethod('post') ? 'required|' : '') . "file|mimes:jpg,jpeg,png,gif|max:2048",
             "category_id" => "required|exists:categories,id",

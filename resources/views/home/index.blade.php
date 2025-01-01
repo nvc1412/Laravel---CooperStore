@@ -365,7 +365,8 @@
                                 <div class="ttbanner-desc text-center">
                                     <span class="title text-uppercase">Hiện đại</span>
                                     <span class="subtitle text-uppercase py-20">giảm đến 50%</span>
-                                    <span class="shop-now text-capitalize"><a href="#" class="btn-primary">xem
+                                    <span class="shop-now text-capitalize"><a href="{{route("home.shop")}}"
+                                            class="btn-primary">xem
                                             ngay</a></span>
                                 </div>
                             </div>
@@ -377,7 +378,8 @@
                                 <div class="ttbanner-desc text-center">
                                     <span class="title text-uppercase">Lịch lãm</span>
                                     <span class="subtitle text-uppercase py-20">giảm đến 50%</span>
-                                    <span class="shop-now text-capitalize"><a href="#" class="btn-primary">xem
+                                    <span class="shop-now text-capitalize"><a href="{{route("home.shop")}}"
+                                            class="btn-primary">xem
                                             ngay</a></span>
                                 </div>
                             </div>

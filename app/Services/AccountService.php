@@ -146,6 +146,16 @@ class AccountService
 
     public function ratingProduct(Product $product, $request)
     {
+        $hasPurchased = auth()->user()->bills()
+            ->whereHas('details', function ($query) use ($product) {
+                $query->where('product_id', $product->id);
+            })
+            ->exists();
+
+        if (!$hasPurchased) {
+            throw new RatingException("Bạn cần mua sản phẩm trước khi đánh giá!");
+        }
+
         $check = Rating::where([["user_id", auth()->id()], ["product_id", $product->id]])->first();
         if ($check) {
             throw new RatingException();
