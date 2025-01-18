@@ -9,6 +9,7 @@ use App\Models\Bill;
 use App\Models\BillDetail;
 use App\Models\BillVerifyToken;
 use App\Models\Cart;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class OrderService
@@ -21,33 +22,35 @@ class OrderService
         $data["email"] = $auth->email;
         $data["total"] = 0;
 
-        if ($bill = Bill::create($data)) {
-            $totalPrice = 0;
+        return DB::transaction(function () use ($auth, $data, $request) {
+            if ($bill = Bill::create($data)) {
+                $totalPrice = 0;
 
-            foreach ($auth->carts as $cart) {
-                $totalPrice += ($cart->quantity * $cart->price);
-                $data_cart = [
-                    "bill_id" => $bill->id,
-                    "product_id" => $cart->product_id,
-                    "product_detail_id" => $cart->product_detail_id,
-                    "quantity" => $cart->quantity,
-                    "price" => $cart->price
-                ];
-                BillDetail::create($data_cart);
+                foreach ($auth->carts as $cart) {
+                    $totalPrice += ($cart->quantity * $cart->price);
+                    $data_cart = [
+                        "bill_id" => $bill->id,
+                        "product_id" => $cart->product_id,
+                        "product_detail_id" => $cart->product_detail_id,
+                        "quantity" => $cart->quantity,
+                        "price" => $cart->price
+                    ];
+                    BillDetail::create($data_cart);
+                }
+
+                // Xóa giỏ hàng
+                Cart::where("user_id", auth()->id())->delete();
+
+                if ($request->payment == 'cod') {
+                    return $this->paymentWithCod($bill);
+                } elseif ($request->payment == 'vnpay') {
+                    return $this->paymentWithVnpay($bill, $totalPrice);
+                } elseif ($request->payment == 'momo') {
+                    return $this->paymentWithMomo($bill, $totalPrice);
+                }
+                throw new OrderException();
             }
-
-            // Xóa giỏ hàng
-            Cart::where("user_id", auth()->id())->delete();
-
-            if ($request->payment == 'cod') {
-                return $this->paymentWithCod($bill);
-            } elseif ($request->payment == 'vnpay') {
-                return $this->paymentWithVnpay($bill, $totalPrice);
-            } elseif ($request->payment == 'momo') {
-                return $this->paymentWithMomo($bill, $totalPrice);
-            }
-            throw new OrderException();
-        }
+        });
     }
 
     public function paymentWithCod(Bill $bill)

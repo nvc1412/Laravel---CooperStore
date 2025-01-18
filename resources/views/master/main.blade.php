@@ -692,6 +692,9 @@
     @endif
 
 
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger intent="WELCOME" chat-title="cooperstore" agent-id="7d77ca06-40d1-47c4-bb97-55885fa32410"
+        language-code="vi"></df-messenger>
 </body>
 
 </html>

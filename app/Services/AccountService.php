@@ -45,6 +45,8 @@ class AccountService
     {
         $data["password"] = bcrypt($data["password"]);
         $data = array_intersect_key($data, array_flip(["name", "email", "password"]));
+        $data["phone"] = "0987654321";
+        $data["address"] = "Hà Nội";
 
         if ($account = User::create($data)) {
             return event(new RegisterAccount($account));
